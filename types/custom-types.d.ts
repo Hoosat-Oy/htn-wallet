@@ -1,7 +1,7 @@
 import kaspacore from '@kaspa/core-lib';
 import { KaspaAPI } from 'wallet/apiHelpers';
 
-export type Network = 'kaspa' | 'kaspadev' | 'kaspareg' | 'kaspatest' | 'kaspasim';
+export type Network = 'hoosat' | 'hoosatdev' | 'hoosatreg' | 'hoosattest' | 'hoosatsim';
 export type bytes = string;//base84 string
 
 export * from './rpc';

@@ -51,17 +51,17 @@ class Wallet extends EventTargetImpl {
 
 	// TODO - integrate with Kaspacore-lib
 	static networkTypes: Object = {
-		kaspa: { port: 16110, network: 'kaspa', name : 'mainnet' },
-		kaspatest: { port: 16210, network: 'kaspatest', name : 'testnet' },
-		kaspasim: {	port: 16510, network: 'kaspasim', name : 'simnet' },
-		kaspadev: {	port: 16610, network: 'kaspadev', name : 'devnet' }
+		hoosat: { port: 16110, network: 'hoosat-mainnet', name : 'mainnet' },
+		hoosattest: { port: 16210, network: 'hoosat-testnet', name : 'testnet' },
+		hoosatsim: {	port: 16510, network: 'hoosat-simnet', name : 'simnet' },
+		hoosatdev: {	port: 16610, network: 'kaspa-devnet', name : 'devnet' }
 	}
 
 	static networkAliases: Object = {
-		mainnet: 'kaspa',
-		testnet: 'kaspatest',
-		devnet: 'kaspadev',
-		simnet: 'kaspasim'
+		mainnet: 'hoosat',
+		testnet: 'hoosattest',
+		devnet: 'hoosatdev',
+		simnet: 'hoosatsim'
 	}
 
 
@@ -124,7 +124,7 @@ class Wallet extends EventTargetImpl {
 	/**
 	 * Current network.
 	 */
-	network: Network = 'kaspa';
+	network: Network = 'hoosat';
 
 	api: KaspaAPI; //new KaspaAPI();
 

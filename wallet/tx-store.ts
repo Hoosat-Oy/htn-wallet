@@ -26,12 +26,12 @@ export interface TXStoreItem{
 
 export const internalNames = {
 	mainnet : "default",
-	kaspa: "default",
+	hoosat: "default",
 	testnet : "testnet",
-	kaspatest: "testnet",
-	kaspasim: "simnet",
-	kaspadev: "devnet",
-  kaspareg: "kaspareg"
+	hoosattest: "testnet",
+	hoosatsim: "simnet",
+	hoosatdev: "devnet",
+  hoosatreg: "kaspareg"
 }
 
 export class TXStore{
