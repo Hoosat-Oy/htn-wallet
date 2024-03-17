@@ -230,7 +230,7 @@ class KaspaAPI extends EventTargetImpl{
 		const response = await this.rpc.submitTransaction(tx).catch((e) => {
 			throw new ApiError(`API connection error. ${e}`); // eslint-disable-line
 		})
-		//console.log("submitTransaction:result", response)
+		console.log("submitTransaction:result", response)
 		if(response.transactionId)
 			return response.transactionId;
 
