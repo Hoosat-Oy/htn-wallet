@@ -70,25 +70,25 @@ class LSDB extends DBInterface{
 		if(!data)
 			return
 		let ts = Date.now();
-		this.LS.setItem("kaspa-wallet-"+ts, data);
+		this.LS.setItem("hoosat-wallet-"+ts, data);
 		let cache = this.getCache();
 		if(cache)
-			this.LS.setItem("kaspa-cache-"+ts, cache);
+			this.LS.setItem("hoosat-cache-"+ts, cache);
 	}
 	saveWallet(data:string):void{
-		this.LS.setItem("kaspa-wallet", data);
+		this.LS.setItem("hoosat-wallet", data);
 	}
 
 	getWallet():string|false{
-		return this.LS.getItem("kaspa-wallet");
+		return this.LS.getItem("hoosat-wallet");
 	}
 
 	saveCache(cache:string){
-		return this.LS.setItem("kaspa-cache", cache);
+		return this.LS.setItem("hoosat-cache", cache);
 	}
 
 	getCache():string|undefined{
-		return this.LS.getItem("kaspa-cache");
+		return this.LS.getItem("hoosat-cache");
 	}
 }
 
@@ -108,7 +108,7 @@ if(IS_NODE){
 
 		constructor(opt:DBOptions={}){
 			super();
-			let {fileName="kaspa", folder} = opt;
+			let {fileName="hoosat", folder} = opt;
 			this.fileName = fileName;
 			this.folder = folder||this.getHomeFolder();
 			if(!fs.existsSync(this.folder))
@@ -128,12 +128,12 @@ if(IS_NODE){
 				HOME = os.homedir();
 
 			if(APPDATA) // windows
-				return path.join(APPDATA, 'Kaspa');
+				return path.join(APPDATA, 'Hoosat');
 
 			if(process.platform == 'darwin')
-				return path.join(HOME,'/Library/Application Support/Kaspa/');
+				return path.join(HOME,'/Library/Application Support/Hoosat/');
 
-			return path.join(HOME, '.kaspa');
+			return path.join(HOME, '.hoosat');
 		}
 
 		backup(){
@@ -182,7 +182,7 @@ export class Storage{
 	logger:any;
 	db:DBInterface;
 	constructor(opt:StorageOpts={}){
-		this.logger = CreateLogger("KaspaStorage");
+		this.logger = CreateLogger("HoosatStorage");
 		const {fileDbOptions={}} = opt;
 
 		if(opt.logLevel)
@@ -211,7 +211,7 @@ export class Storage{
 
 	_buildWalletContent(mnemonic:string, meta:WalletMeta={}){
 		return Object.assign({
-			type: "kaspa-wallet",
+			type: "hoosat-wallet",
 			encryption: "default",
 			version: 1,
 			generator: "cli",

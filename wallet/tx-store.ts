@@ -2,7 +2,7 @@ import {Wallet} from './wallet';
 import {iDB} from './indexed-db';
 import {Api} from 'custom-types';
 
-const API_BASE = "https://api.kaspa.org/";
+const API_BASE = "https://api.network.hoosat.fi/";
 
 interface APITx{
 	block_time:number,
@@ -49,7 +49,7 @@ export class TXStore{
 		let sNetwork:string = internalNames[network]||network;
 		//this.restore();
 		if(typeof indexedDB != "undefined")
-			this.idb = new iDB({storeName:"tx", dbName:"kaspa_"+uid+"_"+sNetwork});
+			this.idb = new iDB({storeName:"tx", dbName:"hoosat_"+uid+"_"+sNetwork});
 	}
 
 	add(tx:TXStoreItem, skipSave=false){

@@ -32,7 +32,7 @@ const COMPOUND_UTXO_MAX_COUNT = 500;
 const SompiPerKaspa = 100_000_000
 
 // MaxSompi is the maximum transaction amount allowed in sompi.
-const MaxSompi = 21_000_000 * SompiPerKaspa
+const MaxSompi = 10_000_000_000 * SompiPerKaspa
 
 export {kaspacore, COMPOUND_UTXO_MAX_COUNT, CONFIRMATION_COUNT, COINBASE_CFM_COUNT};
 
