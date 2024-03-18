@@ -224,6 +224,7 @@ class KaspaAPI extends EventTargetImpl{
 	}
 
 	async submitTransaction(tx: RPC.SubmitTransactionRequest): Promise<string> {
+		console.log(tx);
 		if(!this.rpc)
 			return missingRPCProviderError();
 		// eslint-disable-next-line
