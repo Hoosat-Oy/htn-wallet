@@ -233,7 +233,7 @@ export class UtxoSet extends EventTargetImpl {
 			if (totalVal >= txAmount) break;
 		}
 		if (totalVal < txAmount)
-			throw new Error(`Insufficient balance - need: ${KAS(txAmount)} KAS, available: ${KAS(totalVal)} KAS`);
+			throw new Error(`Insufficient balance - need: ${KAS(txAmount)} HTN, available: ${KAS(totalVal)} HTN`);
 
 		return {
 			utxoIds,
