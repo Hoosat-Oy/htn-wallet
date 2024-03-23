@@ -31,7 +31,7 @@ export const internalNames = {
 	hoosattest: "testnet",
 	hoosatsim: "simnet",
 	hoosatdev: "devnet",
-  hoosatreg: "kaspareg"
+  hoosatreg: "hoosatreg"
 }
 
 export class TXStore{

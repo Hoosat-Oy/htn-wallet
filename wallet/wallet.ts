@@ -53,6 +53,7 @@ class Wallet extends EventTargetImpl {
 	static networkTypes: Object = {
 		hoosat: { port: 16110, network: 'hoosat-mainnet', name : 'mainnet' },
 		hoosattest: { port: 16210, network: 'hoosat-testnet', name : 'testnet' },
+		hoosatreg: { port: 16210, network: 'hoosat-ergnet', name : 'regnet' },
 		hoosatsim: {	port: 16510, network: 'hoosat-simnet', name : 'simnet' },
 		hoosatdev: {	port: 16610, network: 'kaspa-devnet', name : 'devnet' }
 	}
@@ -60,6 +61,7 @@ class Wallet extends EventTargetImpl {
 	static networkAliases: Object = {
 		mainnet: 'hoosat',
 		testnet: 'hoosattest',
+		regnet: 'hoosatreg',
 		devnet: 'hoosatdev',
 		simnet: 'hoosatsim'
 	}
