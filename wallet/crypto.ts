@@ -71,10 +71,10 @@ export class Crypto {
 	static parseHexCode(hexCode:string){
 		let data = [];
 		do{
-			let l = parseInt(hexCode.substr(0, 5), 10);
-			let c = hexCode.substr(5, l);
+			let l = parseInt(hexCode.substring(0, 5), 10);
+			let c = hexCode.substring(5, 5 + l);
 			data.push(c);
-			hexCode = hexCode.substr(5+l);
+			hexCode = hexCode.substring(5 + l);
 		}while(hexCode.length);
 		return data;
 		/*
