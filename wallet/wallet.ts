@@ -102,7 +102,15 @@ class Wallet extends EventTargetImpl {
 		return myWallet;
 	}
 
+
+	static async decrypt(password: string, encryptedMnemonic: string) {
+		const decrypted = await Crypto.decrypt(password, encryptedMnemonic);
+		const savedWallet = JSON.parse(decrypted) as WalletSave;
+		return savedWallet
+	} 
+
 	HDWallet: kaspacore.HDPrivateKey;
+	Privkey: String;
 	disableBalanceNotifications: boolean = false;
 	get balance(): {available: number, pending:number, total:number} {
 		return {
@@ -230,9 +238,11 @@ class Wallet extends EventTargetImpl {
 
 
 		if (privKey && seedPhrase) {
+			this.Privkey = privKey
 			this.HDWallet = new kaspacore.HDPrivateKey(privKey);
 			this.mnemonic = seedPhrase;
 		} else {
+			this.Privkey = privKey
 			const temp = new Mnemonic(Mnemonic.Words.ENGLISH);
 			this.mnemonic = temp.toString();
 			this.HDWallet = new kaspacore.HDPrivateKey(temp.toHDPrivateKey().toString());
