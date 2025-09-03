@@ -1,6 +1,6 @@
 {
   "name": "@hoosat/wallet",
-  "version": "1.4.28",
+  "version": "1.4.29",
   "description": "Node module for hoosat",
   "main": "dist/index.js",
   "author": "ASPECTRON Inc.",
