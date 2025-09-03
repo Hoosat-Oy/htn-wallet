@@ -1,67 +1,66 @@
-import kaspacore from '@kaspa/core-lib';
-import { KaspaAPI } from 'wallet/apiHelpers';
+import hoosatcore from "@hoosat/core-lib";
+import { HoosatAPI } from "wallet/apiHelpers";
 
-export type Network = 'hoosat' | 'hoosatdev' | 'hoosatreg' | 'hoosattest' | 'hoosatsim';
-export type bytes = string;//base84 string
+export type Network = "hoosat" | "hoosatdev" | "hoosatreg" | "hoosattest" | "hoosatsim";
+export type bytes = string; //base84 string
 
-export * from './rpc';
-import {IRPC, RPC} from './rpc';
-import { KaspaAPI } from './apiHelpers';
+export * from "./rpc";
+import { IRPC, RPC } from "./rpc";
+import { HoosatAPI } from "./apiHelpers";
 
-
-export interface ScaneMoreResultItem{
-  start:number,
-  end:number,
-  final:number
+export interface ScaneMoreResultItem {
+  start: number;
+  end: number;
+  final: number;
 }
-export interface ScaneMoreResult{
-  error?:any,
-  code:string,
-  receive?:ScaneMoreResultItem,
-  change?:ScaneMoreResultItem
+export interface ScaneMoreResult {
+  error?: any;
+  code: string;
+  receive?: ScaneMoreResultItem;
+  change?: ScaneMoreResultItem;
 }
 
 export interface DebugInfo {
-  inUseUTXOs:{satoshis:number, count:number}
+  inUseUTXOs: { satoshis: number; count: number };
 }
 
-export interface WalletOpt{
-  skipSyncBalance:boolean;
-  syncOnce:boolean;
-  addressDiscoveryExtent:number;
-  logLevel:string;
-  disableAddressDerivation:boolean;
-  checkGRPCFlags:boolean;
-  minimumRelayTransactionFee:number;
-  updateTxTimes:boolean
+export interface WalletOpt {
+  skipSyncBalance: boolean;
+  syncOnce: boolean;
+  addressDiscoveryExtent: number;
+  logLevel: string;
+  disableAddressDerivation: boolean;
+  checkGRPCFlags: boolean;
+  minimumRelayTransactionFee: number;
+  updateTxTimes: boolean;
 }
 
-export interface WalletOptions{
-  skipSyncBalance?:boolean;
-  addressDiscoveryExtent?:number;
-  syncOnce?:boolean;
-  logLevel?:string;
-  disableAddressDerivation?:boolean;
-  checkGRPCFlags?:boolean;
-  minimumRelayTransactionFee?:number;
-  updateTxTimes?:boolean
-}
- 
-export interface NetworkOptions{
-  network:Network;
-  defaultFee?:number;
-  rpc?:IRPC;
+export interface WalletOptions {
+  skipSyncBalance?: boolean;
+  addressDiscoveryExtent?: number;
+  syncOnce?: boolean;
+  logLevel?: string;
+  disableAddressDerivation?: boolean;
+  checkGRPCFlags?: boolean;
+  minimumRelayTransactionFee?: number;
+  updateTxTimes?: boolean;
 }
 
-export interface UnspentOutputInfo{
-  txid:string,
-  address:string,
-  vout:number,
-  scriptPubKey:string,
-  satoshis:number,
-  blockDaaScore:number,
-  scriptPublicKeyVersion:number,
-  isCoinbase:boolean
+export interface NetworkOptions {
+  network: Network;
+  defaultFee?: number;
+  rpc?: IRPC;
+}
+
+export interface UnspentOutputInfo {
+  txid: string;
+  address: string;
+  vout: number;
+  scriptPubKey: string;
+  satoshis: number;
+  blockDaaScore: number;
+  scriptPublicKeyVersion: number;
+  isCoinbase: boolean;
 }
 
 export interface SelectedNetwork {
@@ -75,30 +74,30 @@ export interface SelectedNetwork {
 export type WalletSave = {
   seedPhrase: string;
   privKey: string;
-}
+};
 
 export interface TxSend {
   toAddr: string;
   amount: number;
   fee: number;
-  //tx?: kaspacore.Transaction;
-  changeAddrOverride? : string;
-  networkFeeMax?:number;
-  note?:string;
-  calculateNetworkFee?:boolean;
-  inclusiveFee?:boolean;
-  skipSign?:boolean,
-  privKeysInfo?:boolean;
-  skipUTXOInUseMark?:boolean,
-  compoundingUTXO?:boolean,
-  compoundingUTXOMaxCount?:number
+  //tx?: hoosatcore.Transaction;
+  changeAddrOverride?: string;
+  networkFeeMax?: number;
+  note?: string;
+  calculateNetworkFee?: boolean;
+  inclusiveFee?: boolean;
+  skipSign?: boolean;
+  privKeysInfo?: boolean;
+  skipUTXOInUseMark?: boolean;
+  compoundingUTXO?: boolean;
+  compoundingUTXOMaxCount?: number;
 }
 
 export interface TxCompoundOptions {
-  UTXOMaxCount?:number;
-  networkFeeMax?:number;
-  fee?:number;
-  useLatestChangeAddress?:boolean
+  UTXOMaxCount?: number;
+  networkFeeMax?: number;
+  fee?: number;
+  useLatestChangeAddress?: boolean;
 }
 
 export interface TxResp {
@@ -106,8 +105,8 @@ export interface TxResp {
   rpctx?: string;
 }
 
-export interface ComposeTxInfo{
-  tx: kaspacore.Transaction;
+export interface ComposeTxInfo {
+  tx: hoosatcore.Transaction;
   id: string;
   rawTx: string;
   utxoIds: string[];
@@ -115,21 +114,21 @@ export interface ComposeTxInfo{
   toAddr: string;
   fee: number;
   utxos: UnspentOutput[];
-  dataFee?:number;
-  totalAmount?:number;
-  txSize?:number;
-  note?:string;
-  privKeys:string[];
+  dataFee?: number;
+  totalAmount?: number;
+  txSize?: number;
+  note?: string;
+  privKeys: string[];
 }
 
-export interface TxInfo  extends ComposeTxInfo{
-  dataFee:number;
-  totalAmount:number;
-  txSize:number;
-  note:string;
+export interface TxInfo extends ComposeTxInfo {
+  dataFee: number;
+  totalAmount: number;
+  txSize: number;
+  note: string;
 }
 
-export interface BuildTxResult extends TxInfo{
+export interface BuildTxResult extends TxInfo {
   rpcTX: RPC.SubmitTransactionRequest;
 }
 
@@ -170,13 +169,10 @@ export type PendingTransactions = {
       to: string;
     }
   >;
-  add(
-    id: string,
-    tx: { utxoIds: string[]; rawTx: string; amount: number; fee: number; to: string }
-  ): void;
+  add(id: string, tx: { utxoIds: string[]; rawTx: string; amount: number; fee: number; to: string }): void;
 };
 
-export namespace Api{
+export namespace Api {
   interface Transaction {
     transactionId: string;
     transactionHash: string;
@@ -218,11 +214,9 @@ export namespace Api{
     //confirmations: number;
   }
 
-  interface TransactionsByAddressesResponse{
+  interface TransactionsByAddressesResponse {
     lasBlockScanned: string;
     transactions: RPC.TransactionVerboseData[];
   }
-  declare type BlockResponse = RPC.BlockVerboseData
+  declare type BlockResponse = RPC.BlockVerboseData;
 }
-
-
