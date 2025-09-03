@@ -149,7 +149,7 @@ class Wallet extends EventTargetImpl {
   /**
    * Current network.
    */
-  network: Network = "hoosat";
+  network: Network = "hoosat-mainnet";
 
   api: HoosatAPI; //new HoosatAPI();
 
