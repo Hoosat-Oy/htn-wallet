@@ -64,19 +64,19 @@ class Wallet extends EventTargetImpl {
 
   // TODO - integrate with Hoosatcore-lib
   static networkTypes: Object = {
-    hoosat: { port: 42420, network: "hoosat-mainnet", name: "mainnet" },
-    hoosattest: { port: 42422, network: "hoosat-testnet", name: "testnet" },
-    hoosatsim: { port: 42424, network: "hoosat-simnet", name: "simnet" },
-    hoosatdev: { port: 424246, network: "hoosat-devnet", name: "devnet" },
-    hoosatreg: { port: 42428, network: "hoosat-ergnet", name: "regnet" },
+    "hoosat-mainnet": { port: 42420, network: "hoosat-mainnet", name: "mainnet" },
+    "hoosat-testnet": { port: 42422, network: "hoosat-testnet", name: "testnet" },
+    "hoosat-simnet": { port: 42424, network: "hoosat-simnet", name: "simnet" },
+    "hoosat-devnet": { port: 424246, network: "hoosat-devnet", name: "devnet" },
+    "hoosat-ergnet": { port: 42428, network: "hoosat-ergnet", name: "regnet" },
   };
 
   static networkAliases: Object = {
-    mainnet: "hoosat",
-    testnet: "hoosattest",
-    regnet: "hoosatreg",
-    devnet: "hoosatdev",
-    simnet: "hoosatsim",
+    mainnet: "hoosat-mainnet",
+    testnet: "hoosat-testnet",
+    regnet: "hoosat-regnet",
+    devnet: "hoosat-devnet",
+    simnet: "hoosat-simnet",
   };
 
   static HTN(v: number): string {
