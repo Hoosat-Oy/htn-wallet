@@ -1,7 +1,7 @@
 import hoosatcore from "@hoosat/core-lib";
 import { HoosatAPI } from "wallet/apiHelpers";
 
-export type Network = "hoosat-mainnet" | "hoosat-devnet" | "hoosat-regnet" | "hoosat-testet" | "hoosat-simnet";
+export type Network = "hoosat-mainnet" | "hoosat-devnet" | "hoosat-regnet" | "hoosat-testnet" | "hoosat-simnet";
 export type bytes = string; //base84 string
 
 export * from "./rpc";
