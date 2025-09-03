@@ -10,9 +10,9 @@ Hoosat Wallet is implemented in TypeScript and can be used server-side (NodeJs) 
 
 Hoosat Wallet uses the following modules:
 
-- [hoosat-grpc](https://github.com/aspectron/hoosat-grpc) - provides gRPC bindings for `hoosatd`
-- [hoosat-grpc-node](https://github.com/aspectron/hoosat-grph-node) - gRPC transport for server-side (NodeJs)
-- [hoosat-grpc-web](https://github.com/aspectron/hoosat-grpc-web) - gRPC transport for client-side (browsers)
+- [kaspa-grpc](https://github.com/aspectron/kaspa-grpc) - provides gRPC bindings for `hoosatd`
+- [kaspa-grpc-node](https://github.com/aspectron/hoosat-grph-node) - gRPC transport for server-side (NodeJs)
+- [kaspa-grpc-web](https://github.com/aspectron/kaspa-grpc-web) - gRPC transport for client-side (browsers)
 - [hoosatcore-lib](https://github.com/aspectron/hoosatcore-lib) - Hoosat UTXO and transaction data structures
 
 Applications built on top of Hoosat Wallet Framework:
